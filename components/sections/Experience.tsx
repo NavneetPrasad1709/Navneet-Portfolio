@@ -42,7 +42,6 @@ const EXPERIENCES = [
   },
 ];
 
-
 export default function Experience() {
   const sectionRef = useRef<HTMLElement>(null);
 
@@ -72,7 +71,7 @@ export default function Experience() {
       <div className="wrap">
         <div className="text-label mb-3">Experience</div>
         <h2 className="text-section mb-14">
-          Where I've made{" "}
+          Where I&apos;ve made{" "}
           <em style={{ fontStyle: "italic", color: "var(--accent)" }}>impact.</em>
         </h2>
 

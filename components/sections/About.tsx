@@ -3,8 +3,8 @@ import { useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 
 const PILLARS = [
-  { n: "01", title: "Problem Solving",   body: "I enjoy digging into issues and figuring out what’s actually going wrong. Fixing things properly is more satisfying than quick patches." },
-  { n: "02", title: "Clean Code",        body: "I try to write code that’s simple, readable, and easy to build on — so future changes don’t become painful." },
+  { n: "01", title: "Problem Solving",   body: "I enjoy digging into issues and figuring out what&apos;s actually going wrong. Fixing things properly is more satisfying than quick patches." },
+  { n: "02", title: "Clean Code",        body: "I try to write code that&apos;s simple, readable, and easy to build on — so future changes don&apos;t become painful." },
   { n: "03", title: "Big Picture Thinking",    body: "I think about performance, edge cases, and how everything fits together — not just the feature in front of me." },
   { n: "04", title: "From Idea to Reality",    body: "I turn concepts into functional features, making sure they work smoothly beyond just development environments." },
 ];
@@ -46,17 +46,17 @@ export default function About() {
           <div>
             <div className="ar text-label mb-4">About Me</div>
             <h2 className="ar text-section">
-              Building the web's{" "}
+              Building the web&apos;s{" "}
               <em style={{ color: "var(--accent)", fontStyle: "italic" }}>next layer.</em>
             </h2>
           </div>
           
           <div className="ar flex flex-col justify-end">
             <p className="text-base leading-relaxed mb-4" style={{ color: "var(--t-medium)" }}>
-              I’m Navneet Prasad — a Software Developer with 3+ years of experience building scalable applications and backend-driven systems. I enjoy solving complex problems, writing clean and maintainable code, and turning ideas into reliable, production-ready software.
+              I&apos;m Navneet Prasad — a Software Developer with 3+ years of experience building scalable applications and backend-driven systems. I enjoy solving complex problems, writing clean and maintainable code, and turning ideas into reliable, production-ready software.
             </p>
             <p className="text-base leading-relaxed" style={{ color: "var(--t-muted)" }}>
-              My experience spans real-world projects where I’ve built APIs, optimized performance, and delivered features that are meant to scale. I believe good software isn’t just about working — it’s about working well, efficiently, and sustainably.
+              My experience spans real-world projects where I&apos;ve built APIs, optimized performance, and delivered features that are meant to scale. I believe good software isn&apos;t just about working — it&apos;s about working well, efficiently, and sustainably.
             </p>
           </div>
         </div>
