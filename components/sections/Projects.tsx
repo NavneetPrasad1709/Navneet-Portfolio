@@ -4,25 +4,26 @@ import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
 import { ExternalLink, Github } from "lucide-react";
 
 const PROJECTS = [
-  {
-    id: "01",
-    image: "/src/images/neuraflow.png", // 👈 Replace with your actual image path
-    title: "NeuraFlow",
-    sub: "AI Analytics Platform",
-    desc: "Real-time ML model monitoring dashboard with live streaming metrics, custom visualization pipelines, and collaborative team workflows.",
-    features: [
-      "WebSocket streaming",
-      "Custom chart builder",
-      "Role-based access",
-    ],
-    tech: ["Next.js", "TypeScript", "D3.js", "Supabase"],
-    live: "#",
-    github: "#",
-    year: "2024",
-  },
+{
+  id: "01",
+  image: "/src/images/voxscribe.png", // update with your actual image path
+  title: "VoxScribe",
+  sub: "AI Transcription App",
+  desc: "An AI-powered transcription application that converts audio & video to accurate text in real time with speaker detection, downloadable transcripts, and seamless export options. Built with modern tech for fast performance and clean UX.",
+  features: [
+    "AI-powered speech-to-text",
+    "Speaker identification",
+    "Downloadable transcripts",
+    "Export to multiple formats",
+  ],
+  tech: ["Next.js", "TypeScript", "Tailwind CSS", "OpenAI APIs"],
+  live: "https://voxscribe-ten.vercel.app/",
+  github: "#", // add your GitHub repo link here
+  year: "2025",
+},
   {
     id: "02",
-    image: "/src/images/macOS.png", 
+    image: "/src/images/macOS.png",
     title: "macOS Portfolio",
     sub: "Personal Developer Portfolio",
     desc: "A macOS-inspired interactive developer portfolio featuring smooth window animations, glassmorphism UI, and desktop-style navigation to showcase projects and skills.",
@@ -39,38 +40,38 @@ const PROJECTS = [
       "Zustand",
       "Framer Motion",
     ],
-    live: "#",
-    github: "#",
+    live: "https://navneet-macos-portfolio.netlify.app/",
+    github: "https://github.com/NavneetPrasad1709/MacOS_Portfolio",
   },
-{
-  id: "03",
-  image: "/src/images/nexus.png", 
-  title: "Nexus Chat App",
-  sub: "Full Stack Application",
-  desc: "Production-grade real-time chat app with WebSocket messaging, JWT auth, group channels, DMs, and live typing indicators.",
-  features: ["Real-time messaging", "JWT Auth", "Live presence"],
-  tech: ["React", "Node.js", "Socket.IO", "MongoDB"],
-  live: "https://chatapp-ashen-eight.vercel.app",
-  github: "https://github.com/NavneetPrasad1709/ChatApp",
-  year: "2025",
-},
-{
-  id: "04",
-  image: "/images/pricepulse.png", 
-  title: "PricePulse",
-  sub: "AI-Powered Price Tracking SaaS",
-  desc: "Track product prices in real-time and get instant alerts when your target price is reached. Built with Supabase authentication and modern full-stack architecture.",
-  features: [
-    "Real-time price tracking",
-    "Supabase Auth",
-    "Server-side scraping",
-    "Cloud deployment (Vercel)"
-  ],
-  tech: ["Next.js 14", "Supabase", "Cheerio", "PostgreSQL"],
-  live: "https://pricepulse-ten.vercel.app",
-  github: "https://github.com/NavneetPrasad1709/pricepulse",
-  year: "2026",
-}
+  {
+    id: "03",
+    image: "/src/images/nexus.png",
+    title: "Nexus Chat App",
+    sub: "Full Stack Application",
+    desc: "Production-grade real-time chat app with WebSocket messaging, JWT auth, group channels, DMs, and live typing indicators and Fully responsive design.",
+    features: ["Real-time messaging", "JWT Auth", "Live presence", "Fully responsive design"],
+    tech: ["React", "Node.js", "Socket.IO", "MongoDB"],
+    live: "https://chatapp-ashen-eight.vercel.app",
+    github: "https://github.com/NavneetPrasad1709/ChatApp",
+    year: "2025",
+  },
+  {
+    id: "04",
+    image: "/src/images/pricepulse.png",
+    title: "PricePulse",
+    sub: "AI-Powered Price Tracking SaaS",
+    desc: "Track product prices in real-time and get instant alerts when your target price is reached. Built with Supabase authentication and modern full-stack architecture.",
+    features: [
+      "Real-time price tracking",
+      "Supabase Auth",
+      "Server-side scraping",
+      "Cloud deployment (Vercel)",
+    ],
+    tech: ["Next.js 14", "Supabase", "Cheerio", "PostgreSQL"],
+    live: "https://pricepulse-ten.vercel.app",
+    github: "https://github.com/NavneetPrasad1709/pricepulse",
+    year: "2026",
+  },
 ];
 
 function Card({ p }: { p: (typeof PROJECTS)[0] }) {

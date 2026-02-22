@@ -141,7 +141,7 @@ export default function Header() {
                 transition={{ delay: 0.4 }}
                 className="flex items-center gap-5 mt-8"
               >
-                <a href="https://github.com" target="_blank" rel="noopener noreferrer"
+                <a href="https://github.com/NavneetPrasad1709/NavneetPrasad1709" target="_blank" rel="noopener noreferrer"
                   style={{ color: "var(--t-muted)" }}><Github size={20} /></a>
                 <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer"
                   style={{ color: "var(--t-muted)" }}><Linkedin size={20} /></a>

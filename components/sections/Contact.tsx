@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Github, Linkedin, Twitter, Send, ArrowUpRight } from "lucide-react";
+import { Github, Linkedin, Send, ArrowUpRight } from "lucide-react";
 
 export default function Contact() {
   const sectionRef = useRef<HTMLElement>(null);
@@ -38,7 +38,13 @@ export default function Contact() {
   const submit = async (e: React.FormEvent) => {
     e.preventDefault();
     setState("sending");
-    await new Promise((r) => setTimeout(r, 1400));
+
+    await fetch("https://formspree.io/f/xojnkggr", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(form),
+    });
+
     setState("done");
   };
 
@@ -50,7 +56,7 @@ export default function Contact() {
     },
     {
       label: "LinkedIn",
-      href: " https://www.linkedin.com/in/navneet-prasad8/",
+      href: "https://www.linkedin.com/in/navneet-prasad8/",
       Icon: Linkedin,
     },
   ];
@@ -66,7 +72,7 @@ export default function Contact() {
         <div className="cr text-label mb-3">Contact</div>
 
         <h2 className="cr text-section mb-4">
-          Let’s build something{" "}
+          Let's build something{" "}
           <em style={{ fontStyle: "italic", color: "var(--accent)" }}>
             meaningful.
           </em>
@@ -76,7 +82,7 @@ export default function Contact() {
           className="cr text-base mb-12 max-w-lg"
           style={{ color: "var(--t-medium)" }}
         >
-          I’m open to software development roles, impactful projects, and
+          I'm open to software development roles, impactful projects, and
           thoughtful collaborations. I usually respond within 24 hours.
         </p>
 
@@ -114,7 +120,7 @@ export default function Contact() {
                       className="text-sm"
                       style={{ color: "var(--t-muted)" }}
                     >
-                      I’ll be in touch within 24 hours.
+                      I'll be in touch within 24 hours.
                     </div>
                   </div>
                 </motion.div>
@@ -200,7 +206,6 @@ export default function Contact() {
 
           {/* ================= INFO COLUMN ================= */}
           <div className="cr space-y-8">
-            {/* Contact Info */}
             <div>
               <div
                 className="text-label mb-2"
@@ -225,7 +230,6 @@ export default function Contact() {
               </a>
             </div>
 
-            {/* Socials */}
             <div>
               <div
                 className="text-label mb-4"
@@ -251,7 +255,6 @@ export default function Contact() {
               </div>
             </div>
 
-            {/* Availability Card */}
             <div
               className="rounded-xl p-5 border"
               style={{

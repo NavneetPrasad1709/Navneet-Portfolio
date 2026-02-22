@@ -31,7 +31,9 @@ export default function SmoothScroll() {
         const onClick = (e: MouseEvent) => {
           const anchor = (e.target as HTMLElement).closest<HTMLAnchorElement>("a[href^='#']");
           if (!anchor) return;
-          const target = document.querySelector(anchor.getAttribute("href") || "");
+          const href = anchor.getAttribute("href") || "";
+          if (!href || href === "#") return;
+          const target = document.querySelector(href);
           if (target) {
             e.preventDefault();
             lenis.scrollTo(target, { offset: -72, duration: 1.3 });
