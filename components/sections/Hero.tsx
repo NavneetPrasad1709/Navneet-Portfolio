@@ -98,7 +98,7 @@ export default function Hero() {
         ref={imgRef}
         className="relative w-full lg:w-1/2 h-[55vw] min-h-[320px] lg:h-screen lg:min-h-screen flex-shrink-0 overflow-hidden"
         style={{
-          backgroundImage: "url('/src/images/hero.webp')",
+          backgroundImage: "url('/src/images/Hero.webp')",
           backgroundSize: "cover",
           backgroundPosition: "top 25% center",
           backgroundRepeat: "no-repeat",
