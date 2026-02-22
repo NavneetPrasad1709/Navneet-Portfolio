@@ -46,7 +46,7 @@ export default function Header() {
                 className="w-7 h-7 rounded-md flex items-center justify-center text-white text-[10px] font-mono font-bold"
                 style={{ background: "var(--accent)" }}
               >
-                AR
+                NP
               </div>
               <span className="font-syne text-sm font-semibold tracking-tight" style={{ color: "var(--t-bright)" }}>
                 Navneet Prasad
