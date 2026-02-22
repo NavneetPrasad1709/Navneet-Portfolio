@@ -63,8 +63,8 @@ export default function Header() {
             {/* Icons */}
             <div className="hidden md:flex items-center gap-4">
               {[
-                { Icon: Github, href: "https://github.com", label: "GitHub" },
-                { Icon: Linkedin, href: "https://linkedin.com", label: "LinkedIn" },
+                { Icon: Github, href: "https://github.com/NavneetPrasad1709/NavneetPrasad1709", label: "GitHub" },
+                { Icon: Linkedin, href: "https://linkedin.com/in/navneet-prasad8/", label: "LinkedIn" },
               ].map(({ Icon, href, label }) => (
                 <motion.a
                   key={label}

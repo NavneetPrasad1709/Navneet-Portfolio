@@ -298,9 +298,10 @@ html.lenis, html.lenis body { height: auto; }
 .btn-primary:hover { opacity: 0.88; transform: translateY(-1px); }
 
 .btn-ghost {
+  
   background: transparent;
   color: var(--t-bright);
-  border: 1px solid var(--base-shade);
+  border: 1px solid #8e8e8e;
 }
 .btn-ghost:hover {
   border-color: rgba(var(--accent-rgb), 0.5);

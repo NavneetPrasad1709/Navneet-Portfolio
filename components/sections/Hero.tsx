@@ -104,7 +104,6 @@ export default function Hero() {
           backgroundRepeat: "no-repeat",
         }}
       >
-
         {/* Bottom fade on mobile */}
         <div
           className="absolute bottom-0 inset-x-0 h-16 lg:hidden pointer-events-none"
@@ -115,17 +114,14 @@ export default function Hero() {
       </div>
 
       {/* ═══ RIGHT — Text 50% ═════════════════════════ */}
-      
+
       <div
         className="relative w-full lg:w-1/2 flex flex-col justify-center px-6 sm:px-10 lg:px-14 xl:px-20 pt-28 pb-16 lg:pt-0 lg:pb-0"
         style={{ background: "var(--base)" }}
       >
-        
         {/* Main headline — clipped lines */}
         <div ref={linesRef} className="mb-4">
-          
           <div className="overflow-hidden">
-            
             <div className="h-line text-hero" style={{ opacity: 0 }}>
               I am a
             </div>
@@ -183,11 +179,12 @@ export default function Hero() {
           className="text-base leading-relaxed max-w-md mb-10"
           style={{ color: "var(--t-medium)" }}
         >
-          3+ years of experience, I’m a {" "}
+          3+ years of experience, I’m a{" "}
           <span style={{ color: "var(--t-bright)", fontWeight: 500 }}>
             creative software developer
           </span>
-           &nbsp;who loves designing scalable systems and writing clean code and building systems that actually hold up in production.
+          &nbsp;who loves designing scalable systems and writing clean code and
+          building systems that actually hold up in production.
         </motion.p>
 
         {/* CTA Buttons */}
@@ -200,11 +197,15 @@ export default function Hero() {
           <a href="#projects" className="btn btn-primary">
             View My Work <ArrowUpRight size={15} />
           </a>
-          <a href="/resume.pdf" className="btn btn-ghost">
+          <a
+            href="https://drive.google.com/file/d/1hOpp5DkGcxXLuRc15hddF-73ocN0lb2I/view?usp=sharing"
+            className="btn btn-ghost"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <Download size={15} /> Resume
           </a>
         </motion.div>
-        
 
         {/* Stats */}
         <motion.div
