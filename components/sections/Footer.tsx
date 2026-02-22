@@ -18,7 +18,7 @@ export default function Footer() {
               className="w-6 h-6 rounded flex items-center justify-center text-white text-[9px] font-mono font-bold"
               style={{ background: "var(--accent)" }}
             >
-              AR
+              NP
             </div>
             <span className="text-sm font-syne" style={{ color: "var(--t-muted)" }}>Navneet Prasad</span>
           </div>
@@ -29,9 +29,9 @@ export default function Footer() {
 
           <div className="flex items-center gap-4">
             {[
-              { Icon: Github,   href: "https://github.com" },
-              { Icon: Linkedin, href: "https://linkedin.com" },
-              { Icon: Twitter,  href: "https://twitter.com" },
+              { Icon: Github,   href: "https://github.com/NavneetPrasad1709" },
+              { Icon: Linkedin, href: "https://linkedin.com/in/navneet-prasad8/" },
+            
             ].map(({ Icon, href }) => (
               <motion.a
                 key={href}
