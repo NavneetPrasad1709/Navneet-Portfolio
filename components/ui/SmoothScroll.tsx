@@ -3,6 +3,39 @@ import { useEffect } from "react";
 
 export default function SmoothScroll() {
   useEffect(() => {
+    // Detect touch/mobile devices — Lenis JS smooth scroll fights native
+    // momentum scrolling on iOS/Android and causes the "stuck after a few swipes" bug.
+    // On touch devices we use native scroll-behavior: smooth instead.
+    const isTouchDevice =
+      window.matchMedia("(hover: none) and (pointer: coarse)").matches ||
+      navigator.maxTouchPoints > 0;
+
+    if (isTouchDevice) {
+      document.documentElement.style.scrollBehavior = "smooth";
+
+      // Still handle anchor clicks for smooth navigation on mobile
+      const onClick = (e: MouseEvent) => {
+        const anchor = (e.target as HTMLElement).closest<HTMLAnchorElement>("a[href^='#']");
+        if (!anchor) return;
+        const href = anchor.getAttribute("href") || "";
+        if (!href || href === "#") return;
+        const target = document.querySelector(href);
+        if (target) {
+          e.preventDefault();
+          const headerOffset = 72;
+          const top =
+            target.getBoundingClientRect().top + window.scrollY - headerOffset;
+          window.scrollTo({ top, behavior: "smooth" });
+        }
+      };
+      document.addEventListener("click", onClick);
+      return () => {
+        document.removeEventListener("click", onClick);
+        document.documentElement.style.scrollBehavior = "";
+      };
+    }
+
+    // Desktop only — Lenis smooth scroll
     let lenis: any = null;
     let rafId: number;
 
@@ -17,7 +50,7 @@ export default function SmoothScroll() {
           orientation: "vertical",
           smoothWheel: true,
           wheelMultiplier: 1,
-          touchMultiplier: 1.8,
+          // touchMultiplier intentionally omitted — touch devices skip Lenis entirely
           infinite: false,
         });
 
@@ -27,7 +60,6 @@ export default function SmoothScroll() {
         }
         rafId = requestAnimationFrame(raf);
 
-        // Handle anchor clicks
         const onClick = (e: MouseEvent) => {
           const anchor = (e.target as HTMLElement).closest<HTMLAnchorElement>("a[href^='#']");
           if (!anchor) return;
@@ -45,7 +77,6 @@ export default function SmoothScroll() {
           document.removeEventListener("click", onClick);
         };
       } catch {
-        // Graceful fallback
         document.documentElement.style.scrollBehavior = "smooth";
         return () => {};
       }

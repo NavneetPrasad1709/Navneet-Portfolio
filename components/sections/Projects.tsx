@@ -87,7 +87,12 @@ function Card({ p }: { p: (typeof PROJECTS)[0] }) {
     damping: 25,
   });
 
+  // Only enable mouse tilt on non-touch devices
+  const isTouchDevice = typeof window !== "undefined" &&
+    window.matchMedia("(hover: none) and (pointer: coarse)").matches;
+
   const onMove = (e: React.MouseEvent) => {
+    if (isTouchDevice) return;
     const r = ref.current!.getBoundingClientRect();
     mx.set(e.clientX - r.left - r.width / 2);
     my.set(e.clientY - r.top - r.height / 2);
@@ -103,8 +108,8 @@ function Card({ p }: { p: (typeof PROJECTS)[0] }) {
       onMouseMove={onMove}
       onMouseLeave={onLeave}
       style={{
-        rotateX: rx,
-        rotateY: ry,
+        rotateX: isTouchDevice ? 0 : rx,
+        rotateY: isTouchDevice ? 0 : ry,
         transformStyle: "preserve-3d",
         perspective: 900,
       }}

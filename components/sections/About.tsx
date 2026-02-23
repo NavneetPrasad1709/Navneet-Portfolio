@@ -19,6 +19,9 @@ export default function About() {
       gsap.registerPlugin(ScrollTrigger);
       if (!sectionRef.current) return;
 
+      // Refresh ScrollTrigger after layout settles (important on mobile)
+      ScrollTrigger.refresh();
+
       sectionRef.current.querySelectorAll<HTMLElement>(".ar").forEach((el) => {
         gsap.fromTo(el,
           { y: 44, opacity: 0 },

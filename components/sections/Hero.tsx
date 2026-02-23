@@ -37,9 +37,13 @@ export default function Hero() {
     })();
   }, []);
 
-  /* ── GSAP: subtle parallax on image ── */
+  /* ── GSAP: subtle parallax on image (desktop only) ── */
   useEffect(() => {
     (async () => {
+      // Skip parallax on touch/mobile devices — it fights native scroll
+      const isTouchDevice = window.matchMedia("(hover: none) and (pointer: coarse)").matches;
+      if (isTouchDevice) return;
+
       const { gsap } = await import("gsap");
       const { ScrollTrigger } = await import("gsap/ScrollTrigger");
       gsap.registerPlugin(ScrollTrigger);

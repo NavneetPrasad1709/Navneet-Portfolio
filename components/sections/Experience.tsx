@@ -46,24 +46,29 @@ export default function Experience() {
   const sectionRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
+    let ctx: any;
     (async () => {
       const { gsap } = await import("gsap");
       const { ScrollTrigger } = await import("gsap/ScrollTrigger");
       gsap.registerPlugin(ScrollTrigger);
       if (!sectionRef.current) return;
 
-      gsap.fromTo(".exp-track", { scaleY: 0 }, {
-        scaleY: 1, duration: 2, ease: "power3.out",
-        scrollTrigger: { trigger: ".exp-track", start: "top 80%", once: true },
-      });
-
-      sectionRef.current.querySelectorAll<HTMLElement>(".exp-card").forEach((card) => {
-        gsap.fromTo(card, { y: 48, opacity: 0 }, {
-          y: 0, opacity: 1, duration: 0.8, ease: "power3.out",
-          scrollTrigger: { trigger: card, start: "top 88%", once: true },
+      ctx = gsap.context(() => {
+        gsap.fromTo(".exp-track", { scaleY: 0 }, {
+          scaleY: 1, duration: 2, ease: "power3.out",
+          scrollTrigger: { trigger: ".exp-track", start: "top 80%", once: true },
         });
-      });
+
+        sectionRef.current!.querySelectorAll<HTMLElement>(".exp-card").forEach((card) => {
+          gsap.fromTo(card, { y: 48, opacity: 0 }, {
+            y: 0, opacity: 1, duration: 0.8, ease: "power3.out",
+            scrollTrigger: { trigger: card, start: "top 88%", once: true },
+          });
+        });
+      }, sectionRef.current);
     })();
+
+    return () => ctx?.revert();
   }, []);
 
   return (

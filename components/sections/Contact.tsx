@@ -10,29 +10,34 @@ export default function Contact() {
   const [state, setState] = useState<"idle" | "sending" | "done">("idle");
 
   useEffect(() => {
+    let ctx: any;
     (async () => {
       const { gsap } = await import("gsap");
       const { ScrollTrigger } = await import("gsap/ScrollTrigger");
       gsap.registerPlugin(ScrollTrigger);
       if (!sectionRef.current) return;
 
-      gsap.fromTo(
-        sectionRef.current.querySelectorAll(".cr"),
-        { y: 36, opacity: 0 },
-        {
-          y: 0,
-          opacity: 1,
-          duration: 0.8,
-          stagger: 0.1,
-          ease: "power3.out",
-          scrollTrigger: {
-            trigger: sectionRef.current,
-            start: "top 76%",
-            once: true,
+      ctx = gsap.context(() => {
+        gsap.fromTo(
+          sectionRef.current!.querySelectorAll(".cr"),
+          { y: 36, opacity: 0 },
+          {
+            y: 0,
+            opacity: 1,
+            duration: 0.8,
+            stagger: 0.1,
+            ease: "power3.out",
+            scrollTrigger: {
+              trigger: sectionRef.current,
+              start: "top 76%",
+              once: true,
+            },
           },
-        },
-      );
+        );
+      }, sectionRef.current);
     })();
+
+    return () => ctx?.revert();
   }, []);
 
   const submit = async (e: React.FormEvent) => {

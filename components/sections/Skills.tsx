@@ -56,41 +56,46 @@ export default function Skills() {
   const sectionRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
+    let ctx: any;
     (async () => {
       const { gsap } = await import("gsap");
       const { ScrollTrigger } = await import("gsap/ScrollTrigger");
       gsap.registerPlugin(ScrollTrigger);
       if (!sectionRef.current) return;
 
-      sectionRef.current.querySelectorAll<HTMLElement>(".sk").forEach((el) => {
+      ctx = gsap.context(() => {
+        sectionRef.current!.querySelectorAll<HTMLElement>(".sk").forEach((el) => {
+          gsap.fromTo(
+            el,
+            { y: 36, opacity: 0 },
+            {
+              y: 0,
+              opacity: 1,
+              duration: 0.75,
+              ease: "power3.out",
+              scrollTrigger: { trigger: el, start: "top 87%", once: true },
+            },
+          );
+        });
+
         gsap.fromTo(
-          el,
-          { y: 36, opacity: 0 },
+          ".edu-track",
+          { scaleY: 0 },
           {
-            y: 0,
-            opacity: 1,
-            duration: 0.75,
+            scaleY: 1,
+            duration: 1.6,
             ease: "power3.out",
-            scrollTrigger: { trigger: el, start: "top 87%", once: true },
+            scrollTrigger: {
+              trigger: ".edu-track",
+              start: "top 80%",
+              once: true,
+            },
           },
         );
-      });
-
-      gsap.fromTo(
-        ".edu-track",
-        { scaleY: 0 },
-        {
-          scaleY: 1,
-          duration: 1.6,
-          ease: "power3.out",
-          scrollTrigger: {
-            trigger: ".edu-track",
-            start: "top 80%",
-            once: true,
-          },
-        },
-      );
+      }, sectionRef.current);
     })();
+
+    return () => ctx?.revert();
   }, []);
 
   return (
