@@ -13,7 +13,7 @@ export const projects = [
   ],
   tech: ["Next.js", "TypeScript", "Tailwind CSS", "OpenAI APIs"],
   live: "https://voxscribe-ten.vercel.app/",
-  github: "#", // add your GitHub repo link here
+  github: "https://github.com/NavneetPrasad1709/voxscribe", 
   year: "2025",
 },
   {
