@@ -202,7 +202,7 @@ export default function Hero() {
             View My Work <ArrowUpRight size={15} />
           </a>
           <a
-            href="https://drive.google.com/file/d/1hOpp5DkGcxXLuRc15hddF-73ocN0lb2I/view?usp=sharing"
+            href="https://docs.google.com/document/d/1rx-y1NORsURH4pkugkQpjLaN7x7iHUHl/edit?usp=sharing&ouid=111337826004357837449&rtpof=true&sd=true"
             className="btn btn-ghost"
             target="_blank"
             rel="noopener noreferrer"
